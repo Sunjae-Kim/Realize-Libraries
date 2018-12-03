@@ -1,6 +1,5 @@
 const makeElement = (json, index) => {
   let element = '';
-  let breakAll = false;
   while(true){
     if(!json[index]) throw new SyntaxError;
     if(json[index] === '}' || json[index] === ']') break;
@@ -15,7 +14,7 @@ const makeElement = (json, index) => {
   else if(element === 'null') { element = null }
   else {element = Number(element)}
   
-  return {element, index, breakAll};
+  return {element, index};
 }
 
 const makeString = (json, index) => {
